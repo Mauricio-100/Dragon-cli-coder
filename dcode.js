@@ -1,70 +1,72 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
-const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
+// Nouvelle syntaxe d'importation (ES Module)
+import { program } from 'commander';
+import chalk from 'chalk';
+import ora from 'ora';
+import fs from 'fs';
+import path from 'path';
+import { pipeline } from '@xenova/transformers';
 
-// --- Description du Robot (Version Robuste) ---
+// --- Description du Robot (Version 3.0 : L'Être Pensant) ---
 program
-  .name('dcode')// On lui donne un nom temporaire pour être sûr
-  .description(chalk.yellow('🐉 Un artisan de texte universel (version robuste).'))
-  .version('2.1.0');
+  .name('dcode')
+  .description(chalk.yellow('🐉 Un golem de code autonome qui pense avec une IA locale.'))
+  .version('3.0.0');
 
-// --- COMMANDE : CRÉER ---
+// --- COMMANDE : CRÉER (Inchangé pour l'instant) ---
 program
-  .command('create <filename> [content...]')
-  .description('Crée un fichier avec un contenu simple.')
-  .action((filename, content) => {
+  .command('create <filename>')
+  .description('Crée un nouveau script à partir d\'un gabarit.')
+  .action((filename) => {
+    // ... code de la commande 'create' ...
     console.log(chalk.cyan(`Le Golem forge le fichier ${filename}...`));
-    
     try {
-        const fileContent = content.length > 0 ? content.join(' ') : 'Hello, Dragon World!';
-        fs.writeFileSync(filename, fileContent);
+        const templatePath = path.join(process.cwd(), 'templates', 'basic_node.js');
+        const templateCode = fs.readFileSync(templatePath, 'utf-8');
+        fs.writeFileSync(filename, templateCode);
         console.log(chalk.green(`Fichier ${chalk.bold(filename)} créé avec succès !`));
     } catch (error) {
         console.error(chalk.red('Échec de la forge :'), error.message);
     }
   });
 
-// --- COMMANDE : LIRE (ANALYSER) ---
+
+// --- LA NOUVELLE COMMANDE : L'ÂME DU GOLEM ---
 program
-  .command('analyze <filename>')
-  .description('Analyse un fichier et affiche ses statistiques.')
-  .action((filename) => {
-    console.log(chalk.cyan(`Le Golem analyse ${filename}...`));
+  .command('think <prompt>')
+  .description('Demande au Golem de penser et de générer du code Python.')
+  .action(async (prompt) => {
+    const spinner = ora(chalk.cyan('Le Golem se prépare à penser...')).start();
+    
     try {
-        const content = fs.readFileSync(filename, 'utf-8');
-        const lines = content.split('\n').length;
-        const words = content.split(/\s+/).filter(Boolean).length;
+        // La première fois, cette ligne va télécharger le modèle.
+        // Les fois suivantes, elle le chargera depuis le cache.
+        spinner.text = chalk.yellow('Le Golem invoque le Grimoire du Code... (téléchargement unique)');
+        const coder = await pipeline('text-generation', 'Xenova/tiny_starcoder_py');
         
-        console.log(chalk.green('Analyse terminée !'));
-        console.log(chalk.yellow.bold(`\n--- Rapport pour ${filename} ---`));
-        console.log(chalk.white(` Lignes: ${lines}`));
-        console.log(chalk.blue(`   Mots: ${words}`));
-        console.log(chalk.yellow.bold('---------------------------\n'));
+        spinner.text = chalk.yellow('Le Grimoire est ouvert. Le Golem réfléchit à votre requête...');
+
+        const output = await coder(prompt, {
+            max_new_tokens: 256, // On limite la longueur pour aller plus vite
+            temperature: 0.7, // Un peu de créativité
+            repetition_penalty: 1.1, // Évite de se répéter
+        });
+
+        spinner.succeed(chalk.green('Le Golem a parlé !'));
+
+        // On nettoie la sortie pour n'afficher que le code généré.
+        const generatedCode = output[0].generated_text.replace(prompt, '').trim();
+
+        console.log(chalk.gray('\n--- Code Forgé par la Pensée ---'));
+        console.log(chalk.blue(generatedCode));
+        console.log(chalk.gray('--- Fin de la Pensée ---\n'));
+
     } catch (error) {
-        console.error(chalk.red('Échec de l\'analyse :'), error.message);
+        spinner.fail(chalk.red('Le Golem a rencontré une erreur lors de sa méditation :'));
+        console.error(error);
     }
   });
 
-// --- COMMANDE : AMÉLIORER (AJOUTER DU TEXTE) ---
-program
-  .command('improve <filename> [textToAdd...]')
-  .description('Ajoute du texte à la fin d\'un fichier.')
-  .action((filename, textToAdd) => {
-    if (textToAdd.length === 0) {
-        console.error(chalk.red('Erreur: Vous devez fournir du texte à ajouter.'));
-        return;
-    }
-
-    try {
-        const content = textToAdd.join(' ');
-        fs.appendFileSync(filename, `\n${content}`);
-        console.log(chalk.green.bold(`Le fichier ${filename} a été amélioré !`));
-    } catch (error) {
-        console.error(chalk.red('Échec de l\'amélioration :'), error.message);
-    }
-  });
 
 program.parse(process.argv);
