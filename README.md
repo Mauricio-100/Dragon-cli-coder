@@ -30,118 +30,127 @@
 
 ```
 
-# Dragon Coder (`dcode`)
+# Dragon Coder (`dcode`) - Version IA
 
-### Votre Artisan de Code Personnel. Forgé pour Obéir. Conçu pour Créer.
+### Le Golem de Code Autonome qui Pense avec une IA Locale.
 
 </div>
 
 <div align="center">
 
-[![Version du Projet](https://img.shields.io/badge/version-2.1.0-blue.svg?style=for-the-badge)](https://github.com/Mauricio-100/Dragon-cli-coder)
+[![NPM Version](https://img.shields.io/npm/v/dragon-coder.svg?style=for-the-badge)](https://www.npmjs.com/package/dragon-coder)
+[![Node.js Version](https://img.shields.io/badge/Node.js-v18.0.0%2B-blue.svg?style=for-the-badge)](https://nodejs.org/)
 [![Licence](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D14.x-brightgreen.svg?style=for-the-badge)](https://nodejs.org/)
-[![NPM](https://img.shields.io/npm/v/dragon-coder.svg?style=for-the-badge)](https://www.npmjs.com/package/dragon-coder)
+[![Maintenu](https://img.shields.io/badge/Maintenu%3F-Oui-brightgreen.svg?style=for-the-badge)]()
 
 </div>
 
 ---
 
-Dans chaque développeur sommeille un architecte. Mais trop souvent, notre flamme créative est étouffée par le labeur des tâches répétitives : créer des fichiers, vérifier la syntaxe, nettoyer le formatage, se souvenir des tâches en suspens.
+**Dragon Coder (`dcode`)** est une expérience audacieuse : insuffler une âme pensante à un outil de ligne de commande. Ce golem de code n'est pas qu'un simple automate ; il est doté d'une intelligence artificielle locale, propulsée par la magie de `@xenova/transformers`.
 
-**Dragon Coder (`dcode`)** est l'exorcisme de cette routine. C'est un golem de code autonome qui vit dans votre terminal, un serviteur infatigable dont la seule raison d'être est de prendre en charge ces rituels afin que vous puissiez vous concentrer sur ce qui compte vraiment : **l'acte de création.**
+Il peut créer des fichiers à partir de modèles, mais son véritable pouvoir est de **penser** : vous lui donnez une instruction, et il forge du code Python à partir de rien, directement dans votre terminal, sans dépendre d'une API externe après l'installation initiale.
 
-## 🛠️ Installation : Invoquer le Dragon
+## ⚠️ Avertissement : Les Exigences de la Forge Céleste
 
-Il existe deux voies pour invoquer le Golem : la Voie de l'Utilisateur, pour ceux qui souhaitent commander le dragon, et la Voie de l'Artisan, pour ceux qui souhaitent forger son âme.
+Ce golem est une créature de pointe. Son âme d'IA a été forgée avec une magie moderne qui exige un atelier puissant.
 
-### La Voie de l'Utilisateur (Recommandé)
+*   **Node.js v18.0.0 ou supérieure est OBLIGATOIRE.**
+    Le langage utilisé par `@xenova/transformers` n'est pas compris par les anciennes versions de Node.js. L'invocation échouera avec une `SyntaxError` si cette condition n'est pas respectée.
 
-C'est la méthode la plus simple et la plus rapide. Elle rend la commande `dcode` disponible partout dans votre royaume (votre terminal) en une seule incantation.
+*   **Une connexion internet est requise pour la PREMIÈRE invocation.**
+    Lors de sa première utilisation, le golem voyagera sur le réseau pour télécharger son "Grimoire" (le modèle d'IA, environ 200 Mo). Toutes les utilisations suivantes seront 100% hors ligne.
 
-**Prérequis :** Avoir [Node.js](https://nodejs.org/) (v14.x ou plus) installé.
+*   **Des ressources suffisantes (RAM) sont nécessaires.**
+    Faire tourner une IA, même petite, est une tâche intensive. Ce golem est conçu pour des environnements de développement de bureau (Windows, macOS, Linux) et peut être instable sur des terminaux mobiles ou des systèmes à très faibles ressources.
 
-Ouvrez votre terminal et lancez la commande d'installation globale via NPM :
+---
+
+## 🛠️ Installation : Le Rituel d'Invocation Mondial
+
+Pour que le monde entier puisse invoquer votre golem, la Voie de l'Utilisateur via NPM est la seule.
+
+Ouvrez votre terminal (avec Node.js v18+) et lancez l'incantation d'installation globale :
+
 ```bash
 npm install -g dragon-coder
 ```
-*(Note : le nom du paquet `dragon-coder` est un exemple. Remplacez-le par le vrai nom une fois publié sur NPM.)*
+*(Remplacez `dragon-coder` par le nom que vous choisirez sur NPM. Il doit être unique !)*
 
-Le `-g` est la rune de pouvoir "global", qui installe le Golem comme un outil permanent de votre système.
+Le `-g` est la rune de pouvoir "global", qui installe le Golem comme un outil permanent de votre système. Une fois l'installation terminée, la commande `dcode` sera à vos ordres.
 
-### La Voie de l'Artisan (Pour les Contributeurs)
+## 📖 Le Grimoire des Commandes
 
-Si votre but est de modifier le code du Dragon, d'ajouter de nouveaux sortilèges ou de corriger des failles, vous devez cloner le sanctuaire depuis GitHub.
+### `dcode create <filename>`
+*L'Incantation de Forge.* Crée un nouveau fichier à partir d'un gabarit de base.
 
-1.  **Clonez le Sanctuaire :** `git clone https://github.com/Mauricio-100/Dragon-cli-coder.git`
-2.  **Entrez dans le Cercle :** `cd Dragon-cli-coder`
-3.  **Assemblez les Composants :** `npm install`
-4.  **Liez le Golem à votre Volonté :** `npm link`
+```bash
+dcode create mon_script.js
+```
+
+### `dcode think "<prompt>"`
+*L'Incantation de Création Pure.* Le véritable pouvoir du golem. Donnez-lui une instruction, et il générera du code Python.
+
+#### **Exemple 1 : Compléter une fonction**
+```bash
+dcode think "def calculate_factorial(n):"
+```
+
+#### **Résultat Attendu :**
+```console
+⬢ Le Golem invoque le Grimoire du Code...
+⬢ Le Grimoire est ouvert. Le Golem réfléchit à votre requête...
+✔ Le Golem a parlé !
+
+--- Code Forgé par la Pensée ---
+    if n == 0:
+        return 1
+    else:
+        return n * calculate_factorial(n-1)
+--- Fin de la Pensée ---
+```
+
+#### **Exemple 2 : Créer une classe complète**
+```bash
+dcode think "Une classe Python 'Voiture' avec des attributs pour la marque, le modèle et l'année, et une méthode pour afficher ses détails."
+```
+
+#### **Résultat Attendu :**```console
+⬢ Le Golem invoque le Grimoire du Code...
+⬢ Le Grimoire est ouvert. Le Golem réfléchit à votre requête...
+✔ Le Golem a parlé !
+
+--- Code Forgé par la Pensée ---
+class Voiture:
+    def __init__(self, marque, modele, annee):
+        self.marque = marque
+        self.modele = modele
+        self.annee = annee
+
+    def afficher_details(self):
+        print(f"Voiture: {self.marque} {self.modele}, Année: {self.annee}")
+
+# Exemple d'utilisation
+ma_voiture = Voiture("Tesla", "Model S", 2024)
+ma_voiture.afficher_details()
+--- Fin de la Pensée ---
+```
 
 ---
 
-## 📜 Scénario d'Utilisation : Forger un Script de A à Z
+## 🐲 La Philosophie : Un Golem à l'Âme Libre
 
-Voici comment un artisan utilise le Dragon Coder pour transformer une idée en un script propre en quelques minutes.
-
-### Étape 1 : La Première Étincelle
-Nous avons besoin d'un nouveau script pour gérer des profils utilisateurs. Nous invoquons le Golem pour forger la base.
-
-```bash
-dcode create user_profiles.js
-```
-> **Résultat :** Un fichier `user_profiles.js` est instantanément créé, contenant un squelette de code propre avec une fonction `main()` et un `TODO`.
-
-### Étape 2 : L'Acte de Création
-Vous ouvrez `user_profiles.js` dans votre éditeur de code et vous y ajoutez votre logique. Vous créez des fonctions, écrivez des algorithmes, mais vous vous déplacez vite, laissant des lignes vides et un formatage imparfait.
-
-### Étape 3 : Le Polissage du Maître
-Votre logique est en place, mais le code est brut. Vous demandez au Golem de le polir.
-
-```bash
-dcode improve user_profiles.js
-```
-> **Résultat :** Le Golem vous demande confirmation, puis il nettoie le fichier. Les espaces superflus disparaissent. Le code respire.
-
-### Étape 4 : L'Inspection Finale
-Avant de considérer le travail terminé, vous demandez au Golem si vous n'avez rien oublié.
-
-```bash
-dcode check user_profiles.js
-```
-> **Résultat :** Le Golem scanne le code et vous rappelle : `⚠ Des tâches en suspens ont été trouvées : Ligne 7: // TODO: Ajouter la logique principale ici.` Vous réalisez que vous avez oublié de supprimer le commentaire du gabarit.
-
-### Étape 5 : La Mesure de l'Œuvre
-Le travail est terminé. Par curiosité, vous demandez au Golem de prendre la mesure de votre création.
-
-```bash
-dcode analyze user_profiles.js
-```
-> **Résultat :** Le Golem vous présente un rapport détaillé : 120 lignes, 450 mots, 3 fonctions.
-
-En cinq commandes, vous êtes passé d'une idée à un fichier de code propre, vérifié et documenté. C'est la magie du workflow de l'Artisan.
-
----
-
-## 📖 Le Grimoire des Commandes : Référence Rapide
-
-| Pouvoir | Incantation | Description de la Magie |
-| :--- | :--- | :--- |
-| **Forge** | `dcode create <filename>` | Matérialise un nouveau fichier à partir d'un gabarit éprouvé. |
-| **Omniscience** | `dcode analyze <filename>` | Révèle les statistiques vitales d'un fichier (lignes, mots, etc.). |
-| **Vigilance** | `dcode check <filename>` | Scanne le code et signale les quêtes inachevées (`TODO`, `FIXME`). |
-| **Polissage** | `dcode improve <filename>` | Nettoie et embellit votre code en un instant. |
+Ce projet est une exploration des frontières de l'IA locale. Il démontre qu'il est possible d'intégrer une intelligence complexe dans un outil de ligne de commande simple et accessible. L'âme du golem est open source, et son savoir (`Xenova/tiny_starcoder_py`) est un cadeau de la communauté à la communauté.
 
 ## 🤝 Contribuer à la Légende
 
-Le Golem est puissant, mais avec l'aide d'autres artisans, il peut devenir une légende. Les contributions sont les bienvenues. Veuillez consulter notre **[GUIDE DE CONTRIBUTION](CONTRIBUTING.md)** pour apprendre les rituels de la forge collaborative.
+Ce golem n'en est qu'au début de son éveil. Les contributions sont les bienvenues, surtout pour l'adapter à de nouveaux modèles d'IA ou pour optimiser ses performances. Veuillez consulter notre **[GUIDE DE CONTRIBUTION](CONTRIBUTING.md)**.
 
 ## 📜 Licence
 
 Ce projet est distribué sous la **[LICENCE MIT](LICENSE)**. L'esprit du dragon est libre.
 
 ---
-<div align-center">
-  <i>"La seule façon de faire du bon travail est d'aimer ce que vous faites." - Steve Jobs</i><br>
-  <b>dcode s'occupe du reste.</b>
+<div align="center">
+  <b>Un projet forgé par la persévérance, pour les artisans du futur.</b>
 </div>
