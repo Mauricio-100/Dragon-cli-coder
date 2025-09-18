@@ -1,191 +1,226 @@
 <div align="center">
 
 ```
-                           ___====-_  _-====___
-                     _--^^^#####//      \\#####^^^--_
-                  _-^##########// (    ) \\##########^-_
-                 -############//  |\^^/|  \\############-
-               _/############//   (@::@)   \\############\_
-              /#############((     \\//     ))#############\
-             -###############\\    (oo)    //###############-
-            -#################\\  / VV \  //#################-
-           -###################\\/      \//###################-
-          _#/|##########/\######(   /\   )######/\##########|\#_
-          |/ |#/\#/\#/\/  \#/\##\  |  |  /##/\#/  \/\#/\#/\#| \|
-          `  |/  V  V  `   V  \#\| |  | |/#/  V   '  V  V  \|  '
-             `   `  `      `   / | |  | | \   '      '  '   '
-                              (  | |  | |  )
-                             __\ | |  | | /__
-                            (vvv(VVV)(VVV)vvv)
+                           `\.----.`
+                          /::==::''\
+                         /::==::'   `\
+                        /::==::'      `\
+                        |::==::'        |
+                        |::==::'        |
+`\::==::..._             |::==::'        |             _...::==::/'
+ `\::==::'''':.          |::==::'        |          .:''''::==::/'
+   `\::==::'   `::.      |::==::'        |      .::'   `::==::/'
+     `\::==::'    `::.   |::==::'        |   .::'    `::==::/'
+       `\::==::'     `::.|::==::'        |.::'     `::==::/'
+         `\::==::'      `|::==::'        |'      `::==::/'
+           `\::==::'     |::==::'        |     `::==::/'
+             `\::==::'   |::==::'        |   `::==::/'
+               `\::==::' |::==::'        | `::==::/'
+                 `\::==::|::==::'        |::==::/'
+                   `\::==|::==::'        |==::/'
+                     `\==|::==::'        |==/'
+                       `\|::==::'        |/'
+                         |::==::'        |
+                         |::==::'        |
+                         |::==::'        |
+                         /::==::'        \
+                        /::==::'          \
+                       /::==::'            \
+                      `'----'`
+
 ```
 
-# Dragon Coder (`dcode`) 🐉
+# Dragon Coder (`dcode`)
 
-**Votre Artisan de Code Autonome. Forgé dans le feu du terminal.**
+### Votre Artisan de Code Personnel. Forgé pour Obéir. Conçu pour Créer.
 
 </div>
 
 <div align="center">
 
-[![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](https://github.com/Mauricio-100/Dragon-cli-coder)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/Node.js-%3E%3D14.x-brightgreen.svg)](https://nodejs.org/)
-[![Built with: Commander.js](https://img.shields.io/badge/Built_with-Commander.js-red.svg)](https://commanderjs.com/)
-[![Code Style](https://img.shields.io/badge/Code%20Style-Magical-lightgrey.svg)]()
+[![Version du Projet](https://img.shields.io/badge/version-2.1.0-blue.svg?style=for-the-badge)](https://github.com/Mauricio-100/Dragon-cli-coder)
+[![Licence](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-%3E%3D14.x-brightgreen.svg?style=for-the-badge)](https://nodejs.org/)
+[![Maintenu](https://img.shields.io/badge/Maintenu%3F-Oui-brightgreen.svg?style=for-the-badge)]()
 
 </div>
 
 ---
 
-**Dragon Coder (`dcode`)** n'est pas un simple outil. C'est un compagnon. Un golem de code infatigable forgé avec une seule mission : vous libérer des tâches répétitives et fastidieuses du développement pour que vous puissiez vous concentrer sur l'étincelle de la création.
+Dans chaque développeur sommeille un architecte, un créateur. Mais trop souvent, notre flamme créative est étouffée par le labeur des tâches répétitives : créer des fichiers, vérifier la syntaxe, nettoyer le formatage, se souvenir des tâches en suspens.
 
-Né de la philosophie que les meilleurs outils sont ceux qui agissent comme une extension de la volonté du développeur, `dcode` ne prétend pas penser à votre place. Il exécute vos intentions avec une précision et une rapidité magiques, transformant des minutes de travail en quelques frappes de clavier.
+**Dragon Coder (`dcode`)** est l'exorcisme de cette routine. C'est un golem de code autonome qui vit dans votre terminal, un serviteur infatigable dont la seule raison d'être est de prendre en charge ces rituels afin que vous puissiez vous concentrer sur ce qui compte vraiment : **l'acte de création.**
 
-## ✨ La Magie de l'Artisan
+## 🔥 Les Pouvoirs du Dragon : Une Vision d'Ensemble
 
-*   **Forge de Code Instantanée :** Créez des squelettes de fichiers à partir de gabarits éprouvés en une seule commande. Fini le syndrome de la page blanche.
-*   **Analyse Structurelle :** Obtenez un rapport détaillé sur n'importe quel fichier texte – lignes, mots, caractères – pour comprendre instantanément son ampleur.
-*   **Inspection Intelligente :** L'Œil du Maître scanne vos fichiers à la recherche de notes (`TODO`, `FIXME`), vous présentant un rapport clair du travail qu'il reste à accomplir.
-*   **Polissage Automatique :** Améliorez la propreté de vos fichiers en un instant. `dcode` nettoie les espaces superflus et met de l'ordre dans votre code.
-*   **100% Autonome & Universel :** Aucune dépendance externe comme Python ou des API web. `dcode` est un golem pur, forgé en JavaScript, prêt à travailler sur n'importe quel projet (Node.js, HTML, Markdown, etc.).
-*   **Interface Interactive et Guidée :** Grâce à `chalk`, `ora` et `inquirer`, chaque interaction est une expérience visuelle claire et satisfaisante.
+| Pouvoir | Incantation | Description de la Magie |
+| :--- | :--- | :--- |
+| **Forge** | `dcode create` | Matérialise un nouveau fichier à partir d'un gabarit éprouvé. |
+| **Omniscience** | `dcode analyze` | Révèle les statistiques vitales d'un fichier (lignes, mots, etc.). |
+| **Vigilance** | `dcode check` | Scanne le code et signale les quêtes inachevées (`TODO`, `FIXME`). |
+| **Polissage** | `dcode improve` | Nettoie et embellit votre code en un instant. |
 
-## 🎬 Le Golem en Action
+---
 
-Imaginez le flux de travail suivant, condensé en quelques secondes :
+## 🛠️ Le Rituel d'Invocation : Installation et Activation
 
-![GIF Placeholder: A terminal session showing the dcode commands in action](https://i.imgur.com/gY9T3p6.gif)
+Pour lier le Dragon Coder à votre volonté, suivez ce rituel sacré. Aucune connaissance arcanique n'est requise, seulement la maîtrise des bases du terminal.
 
-*(GIF montrant la séquence : `dcode create api.js`, suivi de `dcode analyze api.js`, l'utilisateur ajoute du code, puis `dcode improve api.js` nettoie le fichier, et enfin `dcode check api.js` affiche les `TODO` restants.)*
+### Prérequis Divins
 
-## 🛠️ Installation et Activation du Golem
+Avant de commencer, assurez-vous que le mana de votre système est suffisant :
+*   **Node.js (version 14.x ou supérieure)** : Le cœur qui insuffle la vie au golem.
 
-Forger et animer votre propre Golem de Code est un rituel simple.
+### Les Étapes de l'Invocation
 
-### Prérequis
-*   **Node.js (v14.x ou supérieure)** : Le cœur qui fait battre le golem.
+1.  **Clonez le Sanctuaire du Dragon**
+    Ouvrez votre terminal et invoquez la commande `git clone` pour télécharger le code source sacré depuis son sanctuaire sur GitHub.
 
-### Le Rituel d'Invocation
-
-1.  **Clonez le Sanctuaire :**
     ```bash
     git clone https://github.com/Mauricio-100/Dragon-cli-coder.git
+    ```
+
+2.  **Entrez dans le Cercle d'Invocation**
+    Naviguez dans le dossier nouvellement créé. C'est ici que la magie opèrera.
+
+    ```bash
     cd Dragon-cli-coder
     ```
 
-2.  **Assemblez les Composants Magiques :**
+3.  **Assemblez les Composants Magiques**
+    Lancez `npm install`. Cette incantation lit le `package.json` et invoque tous les esprits élémentaires (`chalk`, `commander`, etc.) nécessaires au fonctionnement du golem.
+
     ```bash
     npm install
     ```
 
-3.  **Accordez le Don d'Exécution :**
+4.  **Accordez le Don d'Exécution**
+    Pour que le golem puisse agir, il doit avoir la permission de se mouvoir.
+
     ```bash
     chmod +x dcode.js
     ```
 
-4.  **Liez le Golem à votre Volonté (Activation Globale) :**
+5.  **Liez le Golem à votre Volonté**
+    C'est l'étape finale et la plus cruciale. `npm link` crée un pacte entre vous et le golem, rendant la commande `dcode` disponible partout dans votre royaume (votre terminal).
+
     ```bash
     npm link
     ```
 
-5.  **Vérifiez que le lien spirituel est établi :**
-    ```bash
-    dcode --version
-    ```
-    *Si la version s'affiche, le Golem est à votre service.*
+Le rituel est terminé. Pour vérifier que le pacte est scellé, demandez au golem sa version :
+`dcode --version`. S'il répond, il est à vos ordres.
 
 ---
 
-## 📖 Le Grimoire des Commandes
+## 📖 Le Grimoire des Commandes : Exemples d'Utilisation
 
-Chaque commande est une incantation qui ordonne au golem d'accomplir une tâche précise.
+Voici comment commander votre artisan de code dans des scénarios réels.
 
 ### `dcode create <filename>`
+*L'Incantation de Création.*
 
-**Incantation de Forge.** Crée un nouveau fichier à partir d'un gabarit de base, prêt à être rempli de votre logique.
+Ne commencez plus jamais avec une page blanche. Cette commande forge un nouveau fichier, prêt à être rempli de votre génie.
 
-*   **Usage :** `dcode create server.js`
-*   **Action :** Le Golem prend le gabarit `basic_node.js` et forge un nouveau fichier nommé `server.js` dans votre dossier actuel.
-*   **Résultat Console :**
-    ```console
-    ⬢ Le Golem forge le fichier server.js...
-    ✔ Fichier server.js créé avec succès !
-    ```
+#### **Exemple :**
+```bash
+dcode create web_server.js
+```
 
-### `dcode analyze <filename>`
-
-**Incantation d'Omniscience.** Le Golem examine un fichier et vous révèle ses secrets structurels.
-
-*   **Usage :** `dcode analyze server.js`
-*   **Action :** Le Golem lit le fichier, compte ses lignes, mots et caractères, et identifie son type.
-*   **Résultat Console :**
-    ```console
-    ⬢ Le Golem analyse server.js...
-    ✔ Analyse terminée !
-
-    --- Rapport d'Analyse pour server.js ---
-           Type de Fichier: js
-            Lignes de Code: 9
-                      Mots: 20
-                Caractères: 150
-    ------------------------------------
-    ```
-
-### `dcode check <filename>`
-
-**Incantation de Vigilance.** L'Œil du Maître scanne le fichier à la recherche de marques laissées par le développeur (`TODO`, `FIXME`), vous rappelant les quêtes inachevées.
-
-*   **Usage :** `dcode check server.js`
-*   **Action :** Le Golem lit chaque ligne et extrait les commentaires contenant des tâches.
-*   **Résultat Console :**
-    ```console
-    ⬢ L'Œil du Maître inspecte server.js...
-    ⚠ Des tâches en suspens ont été trouvées :
-      Ligne 7: // TODO: Ajouter la logique principale ici.
-    ```
-
-### `dcode improve <filename>`
-
-**Incantation de Polissage.** Le Golem prend un fichier et le nettoie de ses imperfections, comme un artisan polissant une gemme brute.
-
-*   **Usage :** `dcode improve server.js`
-*   **Action :** Le Golem vous demandera confirmation, puis il supprimera les lignes vides consécutives et s'assurera que le fichier respecte les conventions de formatage de base.
-*   **Résultat Console :**
-    ```console
-    ? Ceci va modifier server.js sur place. Continuer ? (Y/n) › true
-    ⬢ Le Golem polit server.js...
-    ✔ Le fichier a été nettoyé !
-    ```
+#### **Résultat dans votre terminal :**
+```console
+⬢ Le Golem forge le fichier web_server.js...
+✔ Fichier web_server.js créé avec succès !
+```
 
 ---
 
-## 🐲 La Philosophie : Le Pacte de l'Artisan
+### `dcode analyze <filename>`
+*L'Incantation d'Omniscience.*
 
-**`dcode`** est plus qu'un ensemble de commandes ; c'est un pacte entre le développeur et son outil.
+Besoin de prendre la mesure d'un fichier inconnu ou de quantifier votre travail ? Cette commande vous donne un rapport instantané.
 
-*   **Le Golem s'occupe de la Répétition, le Maître s'occupe de la Vision.** Ne perdez plus jamais votre énergie créative à créer des fichiers vides ou à chercher des `TODO` oubliés.
-*   **La Qualité est un Rituel, pas une Corvée.** En intégrant `check` et `improve` dans votre flux de travail, vous adoptez une discipline de propreté du code qui élèvera la qualité de tous vos projets.
-*   **Le Pouvoir Local est le Vrai Pouvoir.** Dans un monde d'outils cloud et d'API, `dcode` est un bastion de l'autonomie. Il fonctionne hors ligne, ne partage jamais votre code et reste sous votre contrôle total. Il est rapide, fiable et privé.
+#### **Exemple :**
+```bash
+dcode analyze web_server.js
+```
 
-## 🗺️ La Route à Venir : Éveiller de Nouveaux Pouvoirs
+#### **Résultat dans votre terminal :**
+```console
+⬢ Le Golem analyse web_server.js...
+✔ Analyse terminée !
 
-Le Golem n'en est qu'au début de son éveil. Voici les parchemins qui guideront son évolution :
+--- Rapport d'Analyse pour web_server.js ---
+       Type de Fichier: js
+        Lignes de Code: 9
+                  Mots: 20
+            Caractères: 150
+------------------------------------
+```
 
-*   [ ] **Gabarits Multiples :** Ajouter une option à `dcode create` pour choisir entre des gabarits (HTML, CSS, JS, etc.).
-*   [ ] **Incantation de Refactorisation :** Une commande `dcode refactor` qui pourrait effectuer des transformations de code simples (ex: renommer une fonction dans tout un fichier).
-*   [ ] **Mémoire du Golem :** Une commande `dcode history` qui montrerait les dernières actions effectuées par le robot sur le projet.
-*   [ ] **Système de Runes (Plugins) :** Permettre à d'autres développeurs de forger leurs propres commandes et de les ajouter au Golem.
+---
 
-## 🙏 Remerciements et Contributions
+### `dcode check <filename>`
+*L'Incantation de Vigilance.*
 
-Ce projet est un hommage à la puissance de la ligne de commande et à la communauté open-source qui la fait vivre. Les contributions, idées et rapports de bugs sont les bienvenus. Ensemble, nous pouvons rendre ce Golem encore plus puissant.
+Le golem devient votre conscience, scannant votre œuvre pour vous rappeler les promesses que vous vous êtes faites.
+
+#### **Exemple :**
+*Le gabarit que nous avons créé contient un `TODO`. Voyons si le golem le trouve.*
+```bash
+dcode check web_server.js
+```
+
+#### **Résultat dans votre terminal :**
+```console
+⬢ L'Œil du Maître inspecte web_server.js...
+⚠ Des tâches en suspens ont été trouvées :
+  Ligne 7: // TODO: Ajouter la logique principale ici.
+```
+
+---
+
+### `dcode improve <filename>`
+*L'Incantation de Polissage.*
+
+Vous avez écrit du code en vitesse, laissant des lignes vides et des imperfections ? Confiez votre fichier au golem. Il le polira sans altérer sa logique.
+
+#### **Exemple :**
+*Après avoir ajouté du code et des espaces en trop, il est temps de nettoyer.*
+```bash
+dcode improve web_server.js
+```
+
+#### **Résultat dans votre terminal :**
+```console
+? Ceci va modifier web_server.js sur place. Continuer ? (Y/n) › true
+⬢ Le Golem polit web_server.js...
+✔ Le fichier a été nettoyé !
+```
+---
+
+##  workflow de l'Artisan : Un Cycle de Création
+
+La véritable magie opère lorsque vous enchaînez les incantations pour créer un flux de travail fluide et puissant :
+
+1.  `dcode create api.js` → Vous avez une base de travail en une seconde.
+2.  *... Vous codez la logique de votre API ...*
+3.  `dcode improve api.js` → Votre code est instantanément nettoyé.
+4.  `dcode check api.js` → Vous vérifiez qu'il ne reste aucune tâche à faire.
+5.  `dcode analyze api.js` → Vous obtenez les statistiques finales de votre œuvre.
+
+En intégrant ce cycle, vous ne codez plus seulement, vous **forgez**.
+
+## 🤝 Contribuer à la Légende
+
+Le Golem est puissant, mais avec l'aide d'autres artisans, il peut devenir une légende. Les contributions sont les bienvenues. Veuillez consulter notre **[GUIDE DE CONTRIBUTION](CONTRIBUTING.md)** pour apprendre les rituels de la forge collaborative.
 
 ## 📜 Licence
 
-Distribué sous la licence MIT. Voir le fichier `LICENSE` pour plus d'informations.
+Ce projet est distribué sous la **[LICENCE MIT](LICENSE)**. L'esprit du dragon est libre.
 
 ---
 <div align="center">
-  <i>"Donnez-moi six heures pour couper un arbre, j'en passerai quatre à affûter ma hache." - Abraham Lincoln</i><br>
-  <b>dcode est votre hache.</b>
+  <i>"La seule façon de faire du bon travail est d'aimer ce que vous faites." - Steve Jobs</i><br>
+  <b>dcode s'occupe du reste.</b>
 </div>
