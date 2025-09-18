@@ -2,115 +2,68 @@
 
 const { program } = require('commander');
 const chalk = require('chalk');
-const inquirer = require('inquirer');
-const ora = require('ora');
 const fs = require('fs');
 const path = require('path');
 
-// --- Description du Robot ---
+// --- Description du Robot (Version Robuste) ---
 program
-  .name('dcode')
-  .description(chalk.yellow('🐉 Un artisan de texte universel.'))
-  .version('2.0.0'); // Version 2.0, l'artisan universel
+  .name('dcode-robust') // On lui donne un nom temporaire pour être sûr
+  .description(chalk.yellow('🐉 Un artisan de texte universel (version robuste).'))
+  .version('2.1.0');
 
 // --- COMMANDE : CRÉER ---
 program
-  .command('create <filename>')
-  .description('Crée un nouveau fichier à partir d\'un gabarit.')
-  .action((filename) => {
-    // Pour l'instant, on n'a qu'un gabarit Node.js
-    const templatePath = path.join(__dirname, 'templates', 'basic_node.js');
-    const spinner = ora(chalk.cyan(`Le Golem forge le fichier ${filename}...`)).start();
+  .command('create <filename> [content...]')
+  .description('Crée un fichier avec un contenu simple.')
+  .action((filename, content) => {
+    console.log(chalk.cyan(`Le Golem forge le fichier ${filename}...`));
     
     try {
-        const templateCode = fs.readFileSync(templatePath, 'utf-8');
-        fs.writeFileSync(filename, templateCode);
-        spinner.succeed(chalk.green(`Fichier ${chalk.bold(filename)} créé avec succès !`));
+        const fileContent = content.length > 0 ? content.join(' ') : 'Hello, Dragon World!';
+        fs.writeFileSync(filename, fileContent);
+        console.log(chalk.green(`Fichier ${chalk.bold(filename)} créé avec succès !`));
     } catch (error) {
-        spinner.fail(chalk.red('Échec de la forge :'), error.message);
+        console.error(chalk.red('Échec de la forge :'), error.message);
     }
   });
 
-// --- COMMANDE : ANALYSER ---
+// --- COMMANDE : LIRE (ANALYSER) ---
 program
   .command('analyze <filename>')
   .description('Analyse un fichier et affiche ses statistiques.')
   .action((filename) => {
-    const spinner = ora(chalk.cyan(`Le Golem analyse ${filename}...`)).start();
+    console.log(chalk.cyan(`Le Golem analyse ${filename}...`));
     try {
         const content = fs.readFileSync(filename, 'utf-8');
         const lines = content.split('\n').length;
         const words = content.split(/\s+/).filter(Boolean).length;
-        const chars = content.length;
-        const extension = path.extname(filename).slice(1);
-
-        spinner.succeed(chalk.green('Analyse terminée !'));
-        console.log(chalk.yellow.bold(`\n--- Rapport d'Analyse pour ${filename} ---`));
-        console.log(chalk.white(`       Type de Fichier: ${extension || 'Inconnu'}`));
-        console.log(chalk.blue(`        Lignes de Code: ${lines}`));
-        console.log(chalk.magenta(`                  Mots: ${words}`));
-        console.log(chalk.cyan(`            Caractères: ${chars}`));
-        console.log(chalk.yellow.bold('------------------------------------\n'));
+        
+        console.log(chalk.green('Analyse terminée !'));
+        console.log(chalk.yellow.bold(`\n--- Rapport pour ${filename} ---`));
+        console.log(chalk.white(` Lignes: ${lines}`));
+        console.log(chalk.blue(`   Mots: ${words}`));
+        console.log(chalk.yellow.bold('---------------------------\n'));
     } catch (error) {
-        spinner.fail(chalk.red('Échec de l\'analyse :'), error.message);
+        console.error(chalk.red('Échec de l\'analyse :'), error.message);
     }
   });
 
-// --- COMMANDE : VÉRIFIER (CHERCHER LES TÂCHES) ---
+// --- COMMANDE : AMÉLIORER (AJOUTER DU TEXTE) ---
 program
-  .command('check <filename>')
-  .description('Vérifie la présence de tâches à faire (TODO, FIXME).')
-  .action((filename) => {
-    const spinner = ora(chalk.cyan(`L'Œil du Maître inspecte ${filename}...`)).start();
-    try {
-        const content = fs.readFileSync(filename, 'utf-8');
-        const lines = content.split('\n');
-        const tasks = [];
-        lines.forEach((line, index) => {
-            if (line.includes('TODO') || line.includes('FIXME')) {
-                tasks.push({ line: index + 1, text: line.trim() });
-            }
-        });
-
-        if (tasks.length > 0) {
-            spinner.warn(chalk.yellow.bold('Des tâches en suspens ont été trouvées :'));
-            tasks.forEach(task => {
-                console.log(`  ${chalk.cyan(`Ligne ${task.line}:`)} ${chalk.white(task.text)}`);
-            });
-        } else {
-            spinner.succeed(chalk.green.bold('Aucune tâche en suspens. Le fichier est prêt !'));
-        }
-    } catch (error) {
-        spinner.fail(chalk.red('Échec de l\'inspection :'), error.message);
-    }
-  });
-
-// --- COMMANDE : AMÉLIORER (NETTOYER LE TEXTE) ---
-program
-  .command('improve <filename>')
-  .description('Améliore la propreté du fichier (nettoyage des lignes vides).')
-  .action(async (filename) => {
-    const { confirm } = await inquirer.prompt([{
-        type: 'confirm',
-        name: 'confirm',
-        message: `Ceci va modifier ${chalk.cyan(filename)} sur place. Continuer ?`,
-        default: true
-    }]);
-
-    if (!confirm) {
-        console.log(chalk.yellow('Opération annulée.'));
+  .command('improve <filename> [textToAdd...]')
+  .description('Ajoute du texte à la fin d\'un fichier.')
+  .action((filename, textToAdd) => {
+    if (textToAdd.length === 0) {
+        console.error(chalk.red('Erreur: Vous devez fournir du texte à ajouter.'));
         return;
     }
-    
-    const spinner = ora(chalk.cyan(`Le Golem polit ${filename}...`)).start();
+
     try {
-        const content = fs.readFileSync(filename, 'utf-8');
-        // Supprime les multiples lignes vides consécutives pour n'en garder qu'une
-        const cleanedContent = content.replace(/\n\s*\n/g, '\n\n');
-        fs.writeFileSync(filename, cleanedContent);
-        spinner.succeed(chalk.green.bold('Le fichier a été nettoyé !'));
+        const content = textToAdd.join(' ');
+        fs.appendFileSync(filename, `\n${content}`);
+        console.log(chalk.green.bold(`Le fichier ${filename} a été amélioré !`));
     } catch (error) {
-        spinner.fail(chalk.red('Échec du polissage :'), error.message);
+        console.error(chalk.red('Échec de l\'amélioration :'), error.message);
     }
   });
 
