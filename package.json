@@ -1,0 +1,31 @@
+{
+  "name": "dragon-coder",
+  "version": "2.0.0",
+  "description": "Un artisan de texte universel qui crée, analyse et améliore des fichiers de code directement depuis le terminal.",
+  "main": "dcode.js",
+  "bin": {
+    "dcode": "./dcode.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mauricio-100/dragon-coder.git"
+  },
+  "keywords": [
+    "cli",
+    "automation",
+    "code-generator",
+    "developer-tool",
+    "text-utility"
+  ],
+  "author": "Mauricio-100",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^8.3.0",
+    "inquirer": "^8.2.4",
+    "ora": "^5.4.1"
+  }
+}
