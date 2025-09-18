@@ -7,7 +7,7 @@ const path = require('path');
 
 // --- Description du Robot (Version Robuste) ---
 program
-  .name('dcode-robust') // On lui donne un nom temporaire pour être sûr
+  .name('dcode')// On lui donne un nom temporaire pour être sûr
   .description(chalk.yellow('🐉 Un artisan de texte universel (version robuste).'))
   .version('2.1.0');
 
