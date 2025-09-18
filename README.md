@@ -75,7 +75,9 @@ Ouvrez votre terminal (avec Node.js v18+) et lancez l'incantation d'installation
 ```bash
 npm install -g dragon-coder
 ```
-*(Remplacez `dragon-coder` par le nom que vous choisirez sur NPM. Il doit être unique !)*
+```bash
+npm install
+```
 
 Le `-g` est la rune de pouvoir "global", qui installe le Golem comme un outil permanent de votre système. Une fois l'installation terminée, la commande `dcode` sera à vos ordres.
 
@@ -135,7 +137,8 @@ ma_voiture = Voiture("Tesla", "Model S", 2024)
 ma_voiture.afficher_details()
 --- Fin de la Pensée ---
 ```
-
+⚠️ tres important `npm install`
+```
 ---
 
 ## 🐲 La Philosophie : Un Golem à l'Âme Libre
