@@ -1,27 +1,43 @@
 {
   "name": "dragon-coder",
-  "version": "2.0.0",
-  "description": "Un artisan de texte universel qui crée, analyse et améliore des fichiers de code directement depuis le terminal.",
+  "version": "2.1.0",
+  "description": "Un artisan de code autonome qui crée, analyse, améliore et vérifie des fichiers directement depuis le terminal.",
   "main": "dcode.js",
   "bin": {
     "dcode": "./dcode.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dcode.js --help",
+    "test": "echo \"Error: Aucun test n'a encore été écrit. Contribution bienvenue !\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mauricio-100/dragon-coder.git"
+    "url": "git+https://github.com/Mauricio-100/Dragon-cli-coder.git"
   },
   "keywords": [
     "cli",
     "automation",
     "code-generator",
     "developer-tool",
+    "scaffolding",
+    "productivity",
+    "artisan",
+    "dragon",
     "text-utility"
   ],
   "author": "Mauricio-100",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mauricio-100/Dragon-cli-coder/issues"
+  },
+  "homepage": "https://github.com/Mauricio-100/Dragon-cli-coder#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "dcode.js",
+    "templates/"
+  ],
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^8.3.0",
