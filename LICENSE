@@ -1,0 +1,98 @@
+Licence du Pacte du Dragon Coder (LPDC) - Version 1.0
+======================================================
+
+Préambule : Le Pacte de l'Artisan
+------------------------------------
+
+Ce Logiciel, connu sous le nom de "Dragon Coder" (`dcode`), n'est pas un simple assemblage de code. Il est la matérialisation d'une philosophie : celle de l'Artisan de Code. Il a été forgé pour servir, pour assister, et pour élever l'art du développement en automatisant le labeur et en libérant la créativité.
+
+Ce Pacte n'est pas une simple permission. C'est un accord de confiance entre l'Artisan originel et vous, le Gardien actuel du Code. En acceptant d'utiliser, de modifier ou de distribuer ce Logiciel, vous acceptez de devenir un maillon de la chaîne des Artisans. Vous vous engagez à préserver l'Esprit du Code : un esprit de partage, de transparence, et d'amélioration continue.
+
+Ce Pacte garantit que la magie du Dragon Coder restera accessible à tous, qu'elle ne sera jamais enfermée dans des coffres propriétaires, et que chaque amélioration apportée par un Gardien profitera à tous les futurs Artisans. C'est un pacte de liberté réciproque. Gardez le feu du dragon allumé.
+
+---
+
+**Section 0 : Définitions des Termes du Pacte**
+
+a) "Le Pacte" se réfère à ce document, la Licence du Pacte du Dragon Coder, Version 1.0.
+
+b) "Le Logiciel" se réfère à l'ensemble des fichiers, codes sources, documentations et gabarits originaux constituant le projet Dragon Coder, tels que fournis par l'Artisan Originel.
+
+c) "L'Artisan Originel" se réfère à Mauricio-100, le créateur et premier Gardien du Logiciel.
+
+d) "Le Gardien" ou "Vous" se réfère à toute personne ou entité qui exerce des droits accordés par ce Pacte, incluant, sans s'y limiter, l'utilisation, la copie, la modification, la fusion, la publication, la distribution, la sous-licence et/ou la vente de copies du Logiciel.
+
+e) "Œuvre Protégée" se réfère au Logiciel original ou à toute Œuvre Dérivée.
+
+f) "Œuvre Dérivée" se réfère à toute œuvre créée par le Gardien qui est basée sur le Logiciel ou en incorpore des parties substantielles, que ce soit sous forme de code source ou de programme compilé.
+
+g) "Contribution" se réfère à toute Œuvre Dérivée ou modification soumise intentionnellement par un Gardien à l'Artisan Originel ou à ses successeurs pour inclusion dans le Logiciel.
+
+h) "La Marque de l'Artisan" se réfère à l'avis de copyright, à la liste des conditions et à la mention de ce Pacte.
+
+---
+
+**Section 1 : Concession des Droits Fondamentaux**
+
+L'Artisan Originel vous accorde par la présente une licence mondiale, non exclusive, gratuite et perpétuelle pour exercer les droits suivants sur l'Œuvre Protégée, sous réserve des conditions énoncées dans ce Pacte :
+
+a) Le droit d'exécuter le Logiciel pour n'importe quel but, sans restriction.
+b) Le droit d'étudier le fonctionnement du Logiciel et d'adapter son code source à vos besoins.
+c) Le droit de redistribuer des copies exactes du Logiciel, afin de partager l'outil avec d'autres.
+d) Le droit de distribuer des versions modifiées (Œuvres Dérivées) du Logiciel, afin que la communauté puisse bénéficier de vos améliorations.
+
+---
+
+**Section 2 : La Condition Stricte du Partage (Le Copyleft du Dragon)**
+
+Ceci est la condition la plus sacrée du Pacte. Elle garantit que la magie reste partagée.
+
+a) Si vous distribuez une Œuvre Dérivée, vous devez le faire sous les termes exacts de ce Pacte, la LPDC Version 1.0, ou (à votre choix) toute version ultérieure publiée par l'Artisan Originel. Vous devez inclure une copie complète de ce Pacte avec votre Œuvre Dérivée.
+
+b) Vous ne pouvez pas imposer de conditions supplémentaires ou différentes qui restreindraient les droits accordés par ce Pacte. Toute tentative de le faire est nulle et mettra fin immédiatement à vos droits en vertu de ce Pacte.
+
+c) Cette condition garantit que toute amélioration, modification ou extension du Golem de Code profitera à toute la communauté des Artisans, créant un cycle vertueux d'amélioration collective.
+
+---
+
+**Section 3 : L'Attribution et la Marque de l'Artisan**
+
+Le respect du travail passé est la marque d'un véritable Artisan.
+
+a) Dans toute redistribution du Logiciel ou d'une Œuvre Dérivée, sous forme de code source ou binaire, vous devez conserver visiblement la Marque de l'Artisan. Cela inclut l'avis de copyright original, ce Pacte, et toute mention de non-garantie.
+
+b) Toute documentation distribuée avec une Œuvre Dérivée doit clairement indiquer que l'œuvre est une modification du Logiciel original et doit fournir un lien clair vers le dépôt original du Logiciel : https://github.com/Mauricio-100/Dragon-cli-coder.
+
+---
+
+**Section 4 : Interdiction de la Magie Noire (Restrictions d'Usage Malveillant)**
+
+Le Golem de Code a été forgé pour construire, non pour détruire.
+
+a) Le Logiciel ne peut être utilisé, directement ou indirectement, pour des activités illégales au regard des lois internationales, pour créer des logiciels malveillants (virus, spywares, ransomwares), pour faciliter le harcèlement, la discrimination ou la violence envers des individus ou des groupes.
+
+b) L'utilisation du Logiciel dans des systèmes dont la défaillance pourrait raisonnablement entraîner des blessures corporelles, la mort ou des dommages environnementaux graves est expressément interdite.
+
+c) Toute violation de cette section constitue un usage abusif du Pacte et entraînera sa résiliation immédiate pour le Gardien contrevenant.
+
+---
+
+**Section 5 : Absence de Garantie (Le Golem est fourni "Tel Quel")**
+
+Le Golem est un serviteur puissant mais n'offre aucune garantie de perfection.
+
+LE LOGICIEL EST FOURNI "TEL QUEL", SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER, LES GARANTIES DE QUALITÉ MARCHANDE, D'ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON.
+
+---
+
+**Section 6 : Limitation de Responsabilité (L'Artisan n'est pas responsable des actions de son Golem)**
+
+EN AUCUN CAS, LES AUTEURS OU LES DÉTENTEURS DES DROITS D'AUTEUR NE PEUVENT ÊTRE TENUS RESPONSABLES DE TOUTE RÉCLAMATION, DE TOUT DOMMAGE OU DE TOUTE AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D'UNE ACTION CONTRACTUELLE, DÉLICTUELLE OU AUTRE, DÉCOULANT DE, HORS DE OU EN RELATION AVEC LE LOGICIEL OU L'UTILISATION OU D'AUTRES TRANSACTIONS DANS LE LOGICIEL.
+
+---
+
+**Section 7 : Acceptation du Pacte**
+
+En utilisant, copiant, modifiant ou distribuant le Logiciel ou toute Œuvre Dérivée, vous indiquez votre acceptation de ce Pacte et de toutes ses conditions. Si vous n'acceptez pas les termes de ce Pacte, vous n'avez pas la permission d'utiliser, de copier, de modifier ou de distribuer le Logiciel.
+
+**Fin du Pacte.**
