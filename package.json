@@ -1,10 +1,10 @@
 {
-  "name": "dragon-remote-cli",
-  "version": "1.0.0",
+  "name": "dragon-prompt-cli",
+  "version": "1.2.1",
   "description": "CLI pour interagir avec le cerveau distant de l'IA Dragon.",
   "main": "drn.js",
   "bin": {
-    "drn": "./drn.js"
+    "dgn": "./dcode.js"
   },
   "scripts": {
     "start": "node drn.js"
