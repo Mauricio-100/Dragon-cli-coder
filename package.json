@@ -1,49 +1,22 @@
 {
-  "name": "dragon-coder",
-  "version": "3.0.0",
-  "description": "Un golem de code autonome qui crée, analyse et pense avec une IA locale propulsée par Transformers.js.",
-  "type": "module",
-  "main": "dcode.js",
+  "name": "dragon-remote-cli",
+  "version": "1.0.0",
+  "description": "CLI pour interagir avec le cerveau distant de l'IA Dragon.",
+  "main": "drn.js",
   "bin": {
-    "dcode": "./dcode.js"
+    "drn": "./drn.js"
   },
   "scripts": {
-    "start": "node dcode.js --help",
-    "test": "echo \"Error: Aucun test n'a encore été écrit. Contribution bienvenue !\" && exit 1"
+    "start": "node drn.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mauricio-100/Dragon-cli-coder.git"
-  },
-  "keywords": [
-    "cli",
-    "ai",
-    "local-ai",
-    "transformers",
-    "code-generator",
-    "developer-tool",
-    "automation",
-    "artisan",
-    "dragon"
-  ],
-  "author": "Mauricio-100",
+  "author": "Mauricio",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Mauricio-100/Dragon-cli-coder/issues"
-  },
-  "homepage": "https://github.com/Mauricio-100/Dragon-cli-coder#readme",
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "files": [
-    "dcode.js",
-    "templates/"
-  ],
   "dependencies": {
-    "@xenova/transformers": "^2.17.1",
     "chalk": "^4.1.2",
-    "commander": "^8.3.0",
-    "inquirer": "^8.2.4",
-    "ora": "^5.4.1"
+    "dotenv": "^16.4.5",
+    "execa": "^5.1.1",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "node-fetch": "^2.7.0"
   }
 }
