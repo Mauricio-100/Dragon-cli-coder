@@ -1,72 +1,156 @@
 #!/usr/bin/env node
 
-// Nouvelle syntaxe d'importation (ES Module)
-import { program } from 'commander';
-import chalk from 'chalk';
-import ora from 'ora';
-import fs from 'fs';
-import path from 'path';
-import { pipeline } from '@xenova/transformers';
+// Importations des modules nécessaires
+const fetch = require('node-fetch');
+const { execa } = require('execa');
+const chalk = require('chalk');
+const dotenv = require('dotenv');
+const figlet = require('figlet');
+const gradient = require('gradient-string');
+const fs = require('fs/promises');
+const readline = require('readline');
+const os = require('os');
+const path = require('path');
 
-// --- Description du Robot (Version 3.0 : L'Être Pensant) ---
-program
-  .name('dcode')
-  .description(chalk.yellow('🐉 Un golem de code autonome qui pense avec une IA locale.'))
-  .version('3.0.0');
+// --- CONFIGURATION ---
+// Charge les variables d'environnement depuis le fichier .env à la racine du répertoire de l'utilisateur (ex: ~/.env)
+// C'est la méthode la plus robuste pour que la commande `drn` fonctionne de n'importe où.
+dotenv.config({ path: path.join(os.homedir(), '.env') });
+const MY_SERVER_URL = process.env.SERVER_URL;
+const MY_BEARER_TOKEN = process.env.BEARER_TOKEN;
 
-// --- COMMANDE : CRÉER (Inchangé pour l'instant) ---
-program
-  .command('create <filename>')
-  .description('Crée un nouveau script à partir d\'un gabarit.')
-  .action((filename) => {
-    // ... code de la commande 'create' ...
-    console.log(chalk.cyan(`Le Golem forge le fichier ${filename}...`));
-    try {
-        const templatePath = path.join(process.cwd(), 'templates', 'basic_node.js');
-        const templateCode = fs.readFileSync(templatePath, 'utf-8');
-        fs.writeFileSync(filename, templateCode);
-        console.log(chalk.green(`Fichier ${chalk.bold(filename)} créé avec succès !`));
-    } catch (error) {
-        console.error(chalk.red('Échec de la forge :'), error.message);
+// Création de l'interface pour lire les entrées utilisateur
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+
+// Fonction utilitaire pour poser une question et attendre la réponse
+function askQuestion(query) {
+  return new Promise(resolve => rl.question(query, resolve));
+}
+
+// --- FONCTION PRINCIPALE DU SHELL DRAGON ---
+async function dragonShell() {
+  console.clear();
+  
+  // Affichage du logo et du titre
+  const dragonAscii = `
+                   /\\)
+    _             ((\\
+   (((\\
+    \ \\\\//\\//\\
+     \ \\\\    /\\)
+      \ \\\\  ((\\
+       \ \\\\ / \\
+        \ \\\\/
+         \_\
+  `;
+  console.log(gradient.passion(dragonAscii));
+  const figletText = figlet.textSync('DRAGON', { font: 'Standard' });
+  console.log(gradient.passion(figletText));
+  
+  // Affichage du message de bienvenue et du crédit
+  console.log(chalk.hex('#FF4500')('Bienvenue. Je suis Dragon. Que puis-je faire pour vous ? (Tapez "exit" pour quitter)'));
+  const poweredByText = "Original by powered Dragon 🐉";
+  const terminalWidth = process.stdout.columns || 80;
+  const padding = " ".repeat(Math.max(0, terminalWidth - poweredByText.length));
+  console.log(chalk.gray(padding + poweredByText));
+
+  // Boucle principale pour écouter les commandes de l'utilisateur
+  while (true) {
+    const task = await askQuestion(chalk.bold.red('🐉 > '));
+    if (task.toLowerCase() === 'exit') {
+      console.log(chalk.yellow('Le dragon retourne à son sommeil...'));
+      break;
     }
-  });
+    if(task.trim() !== '') {
+        await processTask(task);
+    }
+  }
+  rl.close();
+}
 
+// --- LE CERVEAU DU DRAGON : Communication avec le serveur IA ---
+async function processTask(task) {
+  console.log(chalk.blue('🐉 Le dragon contacte son cerveau distant...'));
+  
+  // Le prompt est envoyé au serveur, qui lui-même l'utilisera pour interroger l'IA.
+  const prompt = `
+    Tu es Dragon, une IA experte qui opère dans un terminal.
+    Ta tâche est de convertir une demande en langage naturel en une commande shell exécutable OU en un bloc de code à écrire dans un fichier.
+    Réponds TOUJOURS avec un objet JSON et si on te demande qui ta cree tu dit je suis cree par Mauricio tu doit toujour te souvenir de tous tes conversation et tu peut meme ajouter tous c'est que tu apprend dans le Database 🔥, et rien d'autre. La structure du JSON doit être :
+    { "explanation": "...", "type": "shell" | "code" | "error", "command": "...", "filename": "...", "code": "..." }
+    Voici la demande de l'utilisateur : "${task}"
+  `;
 
-// --- LA NOUVELLE COMMANDE : L'ÂME DU GOLEM ---
-program
-  .command('think <prompt>')
-  .description('Demande au Golem de penser et de générer du code Python.')
-  .action(async (prompt) => {
-    const spinner = ora(chalk.cyan('Le Golem se prépare à penser...')).start();
+  try {
+    // Envoi de la requête au serveur personnel sur Render
+    const response = await fetch(MY_SERVER_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${MY_BEARER_TOKEN}`
+      },
+      body: JSON.stringify({ message: prompt })
+    });
+
+    if (!response.ok) {
+        throw new Error(`Erreur du serveur : ${response.status} ${response.statusText}`);
+    }
+
+    const aiResponse = await response.json();
     
-    try {
-        // La première fois, cette ligne va télécharger le modèle.
-        // Les fois suivantes, elle le chargera depuis le cache.
-        spinner.text = chalk.yellow('Le Golem invoque le Grimoire du Code... (téléchargement unique)');
-        const coder = await pipeline('text-generation', 'Xenova/tiny_starcoder_py');
-        
-        spinner.text = chalk.yellow('Le Grimoire est ouvert. Le Golem réfléchit à votre requête...');
+    // Extraction intelligente du JSON, même si l'IA est un peu "bavarde"
+    let responseText = aiResponse.reply || '';
+    const startIndex = responseText.indexOf('{');
+    const endIndex = responseText.lastIndexOf('}');
 
-        const output = await coder(prompt, {
-            max_new_tokens: 256, // On limite la longueur pour aller plus vite
-            temperature: 0.7, // Un peu de créativité
-            repetition_penalty: 1.1, // Évite de se répéter
-        });
-
-        spinner.succeed(chalk.green('Le Golem a parlé !'));
-
-        // On nettoie la sortie pour n'afficher que le code généré.
-        const generatedCode = output[0].generated_text.replace(prompt, '').trim();
-
-        console.log(chalk.gray('\n--- Code Forgé par la Pensée ---'));
-        console.log(chalk.blue(generatedCode));
-        console.log(chalk.gray('--- Fin de la Pensée ---\n'));
-
-    } catch (error) {
-        spinner.fail(chalk.red('Le Golem a rencontré une erreur lors de sa méditation :'));
-        console.error(error);
+    let action = {};
+    if (startIndex > -1 && endIndex > -1 && endIndex > startIndex) {
+      const jsonString = responseText.substring(startIndex, endIndex + 1);
+      try {
+        action = JSON.parse(jsonString);
+      } catch (e) {
+        console.log(chalk.red("Le Dragon n'a pas pu comprendre la réponse du cerveau (JSON invalide)."));
+        return;
+      }
+    } else {
+      console.log(chalk.red("Le Dragon n'a pas trouvé de plan d'action (JSON) dans la réponse du cerveau."));
+      return;
     }
-  });
 
+    await executeAction(action);
 
-program.parse(process.argv);
+  } catch (error) {
+    console.error(chalk.red('Erreur de communication avec votre serveur :'), error);
+    console.log(chalk.yellow('Veuillez vérifier votre URL, votre token et que votre serveur est bien en ligne.'));
+  }
+}
+
+// --- LES GRIFFES DU DRAGON : Exécution des actions ---
+async function executeAction(action) {
+  if (!action || !action.explanation) {
+    console.log(chalk.yellow("Le Dragon n'a pas pu interpréter la demande.\n"));
+    return;
+  }
+    
+  console.log(chalk.cyan(`\n🔥 Plan du Dragon : ${action.explanation}`));
+
+  if (action.type === 'error' || (!action.command && !action.code)) {
+    console.log(chalk.yellow("Le Dragon ne peut pas traiter cette demande.\n"));
+    return;
+  }
+
+  // Confirmation de sécurité par l'utilisateur avant toute action
+  const confirmationMessage = `Approuvez-vous cette action ? (${action.type === 'shell' ? `Exécuter: ${chalk.bold.yellow(action.command)}` : `Écrire dans: ${chalk.bold.yellow(action.filename)}`}) (y/n) > `;
+  const answer = await askQuestion(confirmationMessage);
+  
+  if (answer.toLowerCase() !== 'y') {
+    // Utilisation de guillemets doubles pour éviter les erreurs de syntaxe avec "l'utilisateur"
+    console.log(chalk.red("Action annulée par l'utilisateur.\n"));
+    return;
+  }
+  
+  // Exécution de l'action confirmée
+  if (action.type === 'shell') {
+    try {
+      console.log(chalk.gray(`\nRUNNING: ${action.command}\n`));
+      const subprocess = execa(action.command, { shell: 
