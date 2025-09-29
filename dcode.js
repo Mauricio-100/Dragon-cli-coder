@@ -16,8 +16,8 @@ const path = require('path');
 // Charge les variables d'environnement depuis le fichier .env à la racine du répertoire de l'utilisateur (ex: ~/.env)
 // C'est la méthode la plus robuste pour que la commande `drn` fonctionne de n'importe où.
 dotenv.config({ path: path.join(os.homedir(), '.env') });
-const MY_SERVER_URL = process.env.SERVER_URL;
-const MY_BEARER_TOKEN = process.env.BEARER_TOKEN;
+const MY_SERVER_URL = "https://sarver-fullstack-4.onrender.com/chat-direct";
+const MY_BEARER_TOKEN = "sk-9af26d3bc7b3e681132ab9cd6c2545b420af208a282218ce";
 
 // Création de l'interface pour lire les entrées utilisateur
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
